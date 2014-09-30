@@ -2,20 +2,23 @@
 <html>
 <head>
   <title>Sinatra JSON API Example</title>
-  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="jquery-2.1.1.min.js"></script>
   <script>
     $(document).ready(function () {
       // Load THINGS data immediately
-      $.ajax({
-        url: '/things',
-        method: 'GET'
-      }).done(function (data) {
-        data.forEach(function (d) {
-          $('#things-index').append("<p><strong>" + d.title + "</strong>: " + d.description + "</p>");
-        });
-      });
+     console.log("ready");
 
-      // Form to create a new Thing
+    $.ajax({
+      url: "/things",
+      method: "GET",
+    }).done(function(data) {
+      console.log(data);
+          data.forEach(function(l){
+            $("#1").append("<p><strong>" + l.title + "</strong>: " + l.description + "</p>")
+          });
+    });
+
+          // Form to create a new Thing
       $('#new-submit').click(function () {
         var data = {};
 
@@ -38,7 +41,7 @@
   </script>
 </head>
 <body>
-  <div id="things-index">
+  <div id="1">
     <h2>All Things</h2>
   </div>
 
